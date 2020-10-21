@@ -49,6 +49,7 @@ def mensaje_inicial():
     respuesta = """\n
 Para iniciar el juego, escribe "dame regex".
 Para salir, escribe "exit".\n
+
 """ 
 
     while True: 
