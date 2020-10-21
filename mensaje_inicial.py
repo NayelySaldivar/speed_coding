@@ -36,7 +36,7 @@ def mensaje_inicial():
     # Continúan las instrucciones
     mensaje3 = "\n\nTienes dos minutos para responder la mayor cantidad de "\
     "desafíos que puedas. Entre más preguntas contestes, ¡mayor será la "\
-    "envidia de los demás programadores!"
+    "envidia de tus colegas programadores!"
 
     for char in mensaje3:
         sys.stdout.write(char)
@@ -49,16 +49,13 @@ def mensaje_inicial():
     respuesta = """\n
 Para iniciar el juego, escribe "dame regex".
 Para salir, escribe "exit".\n
-
 """ 
 
     while True: 
         iniciar = input(respuesta)
 
         if iniciar == 'exit':
-            print("\n¡Regresa pronto!\n")
-            time.sleep(0.1)
-            break
+            return 'salir'
 
         elif iniciar == 'dame regex':
             return True
