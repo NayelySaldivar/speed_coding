@@ -1,4 +1,3 @@
-
 from mensaje_inicial import mensaje_inicial
 from cuenta_regresiva import *
 from temporizador import *
@@ -10,8 +9,6 @@ if __name__ == "__main__":
         # Mantener el juego activo.
         juego_activo = True
         while juego_activo:
-        
-            # Iniciar puntaje: se inició desde la importación. 
             
             # Mensaje: cuenta regresiva para iniciar.
             cuenta_regresiva()
@@ -22,14 +19,13 @@ if __name__ == "__main__":
 
             # Iniciar contadores de preguntas restantes y puntaje
             preguntas_restantes = [1, 2, 3, 4, 5]
-            puntaje = 0
 
             # Mostrar preguntas mientras siga activo el temporizador.
             while thread_temporizador.is_alive():
-                arrojar_pregunta(thread_temporizador, preguntas_restantes, num_pregunta_usuario)
+                arrojar_pregunta(thread_temporizador, preguntas_restantes)
 
             # Mostrar puntaje 
-            print(f'TU SCORE: {puntaje}')
+            print(f'TU SCORE: ')
 
             # Preguntar si quiere volver a jugar
             respuesta_activa = True

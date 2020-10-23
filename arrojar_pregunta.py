@@ -5,7 +5,7 @@ from launcher import *
 
 num_pregunta_usuario = 0
 
-def arrojar_pregunta(thread_temporizador, p_restantes, num_p_usuario):
+def arrojar_pregunta(thread_temporizador, p_restantes):
     # Seleccionar la pregunta que se utilizará
     num_pregunta = random.choice(p_restantes)
     
