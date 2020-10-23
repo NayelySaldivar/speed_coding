@@ -2,23 +2,14 @@ from mensaje_inicial import mensaje_inicial
 from puntaje import *
 from temporizador import *
 from claseregex import *
+from cuenta_regresiva import *
 
 if __name__ == "__main__":
     if mensaje_inicial() == True: #Si el usuario quiere jugar.  
         
         # Iniciar puntaje: se inició desde la importación. 
         # Mensaje: cuenta regresiva para iniciar.
-        print("3...")
-        time.sleep(1)
-        print("Recuerda escribir tu expresión SIN COMILLAS!")
-        time.sleep(1)
-        print("2...")
-        time.sleep(1)
-        print("Puedes saltar la pregunta escribiendo 'skip' :)")
-        time.sleep(1)
-        print("1...")
-        time.sleep(1)
-        print("¡Adelante!")
+        cuenta_regresiva()
                 
         # Iniciar temporizador. La parte de "args" es para ponerle el tiempo
         thread_temporizador = threading.Thread(target = temporizador, args=(5, ))
