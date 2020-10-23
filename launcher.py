@@ -3,6 +3,7 @@ from puntaje import *
 from temporizador import *
 from claseregex import *
 from cuenta_regresiva import *
+from arrojar_pregunta import *
 
 if __name__ == "__main__":
     if mensaje_inicial() == True: #Si el usuario quiere jugar.  
@@ -12,22 +13,17 @@ if __name__ == "__main__":
         cuenta_regresiva()
                 
         # Iniciar temporizador. La parte de "args" es para ponerle el tiempo
-        thread_temporizador = threading.Thread(target = temporizador, args=(5, ))
+        thread_temporizador = threading.Thread(target = temporizador, args=(20, ))
         thread_temporizador.start()
 
         # Mostrar preguntas mientras siga activo el contador.
         while thread_temporizador.is_alive():
-            
-            #Inicializamos las preguntas
-            cuestionario=Preguntas(1,2,3,4)
-            cuestionario.prueba()
-#             print('')
-            time.sleep(1)
+            arrojar_pregunta()
 
         # Terminar la ronda
 
         # Preguntar si quiere volver a jugar
-        pregunta=input("¿Quieres jugar de nuevo?")
+        pregunta = input("¿Quieres jugar de nuevo?")
         time.sleep(1)
         
     else: # Si la persona ya se quiere salir.

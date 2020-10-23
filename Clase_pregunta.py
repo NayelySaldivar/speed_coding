@@ -1,10 +1,10 @@
 import random
 import re
 
-class Preguntas:
+class Pregunta:
     def __init__(self, dificultad, pregunta, respuesta, ayuda):
-        self.pregunta = pregunta
         self.dificultad = dificultad
+        self.pregunta = pregunta
         self.respuesta = respuesta
         self.ayuda = ayuda
     
@@ -31,13 +31,3 @@ class Preguntas:
                 intentos+=1
                 if intentos == 2:
                     print("Hint: ",TotalPreguntas[i].ayuda) 
-
-# Costruimos las preguntas con sus atributos:
-p1 = Preguntas(2,"Expresión que utilizarías para hacer match con 'ABCDEFabcdef123450' ",'ABCDEFabcdef123450',"Considera letras y números")
-p2 = Preguntas(1,"Haz match con '@ironhackmexico'","@ironhackmexico","No olvides el @")
-p3 = Preguntas(1,"Considerando 27-03-1996 ¿Qué usarías para regresar la fecha?" ,"27-03-1996","Recuerda usar '\' para especificar")
-p4 = Preguntas(2,"Haz match con '#insta<3U'","#insta<3U","Considera todos los caracteres especiales")
-p5 = Preguntas(1,"Expresión que utilizarías para obtener un string con los primeros 10 caracteres de la CURP","SARN960327","Recuerda que se compone de 4 letras y 6 números!")
-
-# Las juntamos en una lista para poder después hacer index
-TotalPreguntas = [p1,p2,p3,p4,p5]
