@@ -1,30 +1,24 @@
 import random
 import re
 from preguntas import *
+from launcher import *
 
-preguntas_restantes = [1, 2, 3, 4, 5]
 num_pregunta_usuario = 0
 
-def arrojar_pregunta():
+def arrojar_pregunta(thread_temporizador, p_restantes, num_p_usuario):
     # Seleccionar la pregunta que se utilizará
-    global preguntas_restantes
-    num_pregunta = random.choice(preguntas_restantes)
+    num_pregunta = random.choice(p_restantes)
     
     # Borrar la pregunta seleccionada de la lista de preguntas_restantes
-    preguntas_restantes.remove(num_pregunta)
-
-    # Registrar en qué pregunta va el usuario
-    global num_pregunta_usuario
-    num_pregunta_usuario += 1
+    p_restantes = p_restantes.remove(num_pregunta)
 
     # Iniciar pregunta
-    global thread_temporizador
     pregunta_activa = True
     intentos = 0
     while pregunta_activa:
         
         # Imprimir la pregunta seleccionada
-        print(f"\nPregunta {num_pregunta_usuario}:", todas_las_preguntas[num_pregunta-1].pregunta)
+        print(f"\nPregunta:", todas_las_preguntas[num_pregunta-1].pregunta)
 
         # Imprimir ayuda si ya lleva varios intentos
         if intentos == 2:
@@ -34,18 +28,19 @@ def arrojar_pregunta():
         respuesta = input('>>>')
 
         # Pasar respuesta a formato regex
-        resp_regex = exp_reg = re.compile("'^"+respuesta+"$'")
+        resp_regex = re.compile('^'+respuesta+'$')
         
-        # Verificar si la respuesta está en el string que se indicó
-        match = resp_regex.search(todas_las_preguntas[num_pregunta-1].respuesta)
-
         # Checar respuesta del usuario
-        if respuesta == 'skip':
+        match = re.search(resp_regex, todas_las_preguntas[num_pregunta-1].respuesta)
+
+        if not thread_temporizador.is_alive():
+            pregunta_activa = False
+
+        elif respuesta == 'skip':
            pregunta_activa = False
 
-        elif respuesta == 'correcta':
+        elif match:
             print('¡Correcto!')
-            puntaje += 1
             pregunta_activa = False
 
         else:

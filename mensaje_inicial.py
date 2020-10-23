@@ -63,9 +63,8 @@ Para salir, escribe "exit".\n
         else: 
             mensaje_error = '\nNo te entendí. ¿Qué quisiste decir?'
             
-            time.sleep(0.5)
             for char in mensaje_error:
-                    sys.stdout.write(char)
-                    sys.stdout.flush()
-                    time.sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
+                time.sleep(0.02)
             time.sleep(0.5)
