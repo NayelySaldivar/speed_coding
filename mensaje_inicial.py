@@ -22,7 +22,7 @@ def mensaje_inicial():
 
     time.sleep(1)
 
-    # Aparece el saludo
+    ##Aparece el saludo
     mensaje2 = "¡Bienvenido a Speed Regex! En este juego podrás practicar tu "\
     "velocidad al hacer búsquedas con regex."
 
@@ -49,7 +49,7 @@ def mensaje_inicial():
     respuesta = """\n
 Para iniciar el juego, escribe "dame regex".
 Para salir, escribe "exit".\n
-""" 
+>>>""" 
 
     while True: 
         iniciar = input(respuesta)
@@ -63,9 +63,8 @@ Para salir, escribe "exit".\n
         else: 
             mensaje_error = '\nNo te entendí. ¿Qué quisiste decir?'
             
-            time.sleep(0.5)
             for char in mensaje_error:
-                    sys.stdout.write(char)
-                    sys.stdout.flush()
-                    time.sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
+                time.sleep(0.02)
             time.sleep(0.5)
