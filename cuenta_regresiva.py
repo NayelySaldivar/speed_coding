@@ -3,12 +3,12 @@ import sys
 
 def cuenta_regresiva():
    
-    mensaje0 = "\n--------INSTRUCCIONES--------"
+    mensaje0 = u'\u001b[1m' + "\n\n--------INSTRUCCIONES--------\n" + '\u001b[0m'
     for char in mensaje0:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.015)
-    time.sleep(0.3)
+        time.sleep(0.01)
+    time.sleep(0)
 
     mensaje1 = "\n1. Escribe la expresión que te piden SIN comillas."
     for char in mensaje1:

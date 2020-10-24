@@ -30,9 +30,10 @@ if __name__ == "__main__":
             # Mostrar puntaje 
             
             banner_score = "\n------------------------------"
-            mensaje_con_delay(banner_score)
+            mensaje_con_delay(banner_score, 0.01, 0)
 
-            el_score = f'\n\nSCORE: {puntos} puntos'
+            el_score = u'\u001b[38;5;87m' + u'\u001b[1m' + f'\n\nSCORE: {puntos}' + u'\u001b[0m'
+            print('    ')
             mensaje_con_delay(el_score, 0.13, 0.5)
 
             # Preguntar si quiere volver a jugar

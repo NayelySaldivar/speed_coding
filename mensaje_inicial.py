@@ -4,7 +4,7 @@ import sys
 def mensaje_inicial(): 
 
     # Aparece el banner inicial
-    mensaje1 = """
+    mensaje1 = u"""\u001b[1m
 ----------------------------------------------------------
  ____                      _   ____                      
 / ___| _ __   ___  ___  __| | |  _ \ ___  __ _  _____  __
@@ -14,7 +14,7 @@ def mensaje_inicial():
       |_|                                |___/           
 
 ----------------------------------------------------------
-"""
+\u001b[0m"""
     for char in mensaje1:
         sys.stdout.write(char)
         sys.stdout.flush()
@@ -34,7 +34,7 @@ def mensaje_inicial():
     time.sleep(1)
 
     # Continúan las instrucciones
-    mensaje3 = "\n\nTienes dos minutos para responder la mayor cantidad de "\
+    mensaje3 = u"\n\nTienes \u001b[1mdos minutos\u001b[0m para responder la mayor cantidad de "\
     "desafíos que puedas. Entre más preguntas contestes, ¡mayor será la "\
     "envidia de los demás programadores!"
 
@@ -49,7 +49,7 @@ def mensaje_inicial():
     respuesta = """\n
 Para iniciar el juego, escribe "dame regex".
 Para salir, escribe "exit".\n
->>>""" 
+>>> """ 
 
     while True: 
         iniciar = input(respuesta)
