@@ -16,8 +16,6 @@ def temporizador(tiempo):
         sys.stdout.flush()
         time.sleep(0.01)
 
-    time.sleep(0.5)
-
     mensaje_enter="Presiona ENTER.\n"
 
     for char in mensaje_enter:
