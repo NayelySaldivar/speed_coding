@@ -7,25 +7,38 @@
 
 ## Content
 - [Project Description](#project-description)
-- [Workflow](#workflow)
-- [Organization](#organization)
+- [Challenges](#challenges)
+- [Our next step](#our-next-step)
 - [Links](#links)
 
 <a name="project-description"></a>
 
 ## Project Description
-Juego para poner a prueba tu habilidad para crear expresiones regulares. 
-¡Consigue el mayor número de puntos y rompe el récord!  
+Juego que pone a prueba tu habilidad para crear expresiones regulares. 
+¡Consigue el mayor número de puntos y rompe tu récord!  
 <a name="workflow"></a>
 
-## Workflow
-Outline the workflow you used in your project. What were the steps you went through?
-<a name="organization"></a>
+## Challenges
+- Primer experiencia de Git como parte de un equipo
+- Investigación en la documentación de nuevas bibliotecas (threading, time)
+- Aplicación de las estructuras lógicas para mantener el flujo de ejecución
+- Fragmentar de manera eficiente el código
 
-## Organization
-How did you organize yourself? Did you use any tools?
+## Our next step
+En la siguiente versión añadiremos:
+- Scoreboard: Input de usuario y tabla de récords con los 5 campeones de SpeedRegex
+- Clasificación de preguntas según el tiempo restante, a menos tiempo ~ mayor dificultad
+- Preguntas bonus: Aplicando string operations u otros ejecutables de Python para ganar tiempo/puntos adicionales
 
 <a name="links"></a>
 
 ## Links
-Include the links to your repository and slides. Feel free to include any other links associated to your project. 
+Más información sobre el uso de Regex:
+
+https://regexone.com/ 
+
+https://www.w3resource.com/python-exercises/re/ 
+
+Inspiración: "The Typing of The Dead"
+
+https://www.youtube.com/watch?v=sNfQ_B6_xy8
