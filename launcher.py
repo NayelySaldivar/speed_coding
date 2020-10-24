@@ -17,11 +17,11 @@ if __name__ == "__main__":
             cuenta_regresiva()
                     
             # Iniciar temporizador.
-            thread_temporizador = threading.Thread(target = temporizador, args=(20, ))
+            thread_temporizador = threading.Thread(target = temporizador, args=(45, ))
             thread_temporizador.start()
 
             # Iniciar contadores de preguntas restantes y puntaje
-            preguntas_restantes = [1, 2, 3, 4, 5]
+            preguntas_restantes = [1, 2, 4, 5,6,8,9,10,11]
 
             # Mostrar preguntas mientras siga activo el temporizador.
             while thread_temporizador.is_alive():
