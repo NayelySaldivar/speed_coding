@@ -2,6 +2,7 @@ from mensaje_inicial import mensaje_inicial
 from cuenta_regresiva import *
 from temporizador import *
 from arrojar_pregunta import *
+from mensaje_con_delay import *
 
 puntos=0
 
@@ -27,13 +28,20 @@ if __name__ == "__main__":
                 puntos+=arrojar_pregunta(thread_temporizador, preguntas_restantes)
 
             # Mostrar puntaje 
-            print(f'TU SCORE:{puntos}')
+            
+            banner_score = "\n------------------------------"
+            mensaje_con_delay(banner_score)
+
+            el_score = f'\n\nSCORE: {puntos} puntos'
+            mensaje_con_delay(el_score, 0.13, 0.5)
 
             # Preguntar si quiere volver a jugar
             respuesta_activa = True
 
             while respuesta_activa:
-                respuesta = input("\n¿Quieres jugar de nuevo?\n>>>")
+                quieres_jugar = "\n\n¿Quieres jugar de nuevo?"
+                mensaje_con_delay(quieres_jugar)
+                respuesta = input("\n>>>")
 
                 if respuesta == ('si' or 'sí' or 'Si' or 'Sí' or 'SI' or 'sI'):
                     respuesta_activa = False
@@ -56,5 +64,5 @@ if __name__ == "__main__":
         pass
 
     # Mensaje cuando la persona ya se va a salir
-    print("\n¡Regresa pronto!\n")
-    time.sleep(0.1)
+    mensaje_fin = "\n¡Regresa pronto!\n"
+    mensaje_con_delay(mensaje_fin, 0.015, 0.1)
