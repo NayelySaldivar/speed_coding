@@ -51,5 +51,7 @@ def arrojar_pregunta(thread_temporizador, p_restantes):
         
         except:
             print("Eso no es una expresión regular :(")
+            if not thread_temporizador.is_alive():
+                pregunta_activa = False
          
     return 0 if (respuesta == 'skip') or (not thread_temporizador.is_alive()) else 1 
