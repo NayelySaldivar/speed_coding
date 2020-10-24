@@ -12,9 +12,10 @@ def arrojar_pregunta(thread_temporizador, p_restantes):
     # Borrar la pregunta seleccionada de la lista de preguntas_restantes
     p_restantes = p_restantes.remove(num_pregunta)
 
-    # Iniciar pregunta
+    # Iniciar pregunta y contador de intentos
     pregunta_activa = True
     intentos = 0
+    
     while pregunta_activa:
         
         # Imprimir la pregunta seleccionada
@@ -28,21 +29,27 @@ def arrojar_pregunta(thread_temporizador, p_restantes):
         respuesta = input('>>>')
 
         # Pasar respuesta a formato regex
-        resp_regex = re.compile('^'+respuesta+'$')
+        try:
+            resp_regex = re.compile("^"+respuesta+"$")
         
         # Checar respuesta del usuario
-        match = re.search(resp_regex, todas_las_preguntas[num_pregunta-1].respuesta)
+            match = re.search(resp_regex,todas_las_preguntas[num_pregunta-1].respuesta)
 
-        if not thread_temporizador.is_alive():
-            pregunta_activa = False
+            if not thread_temporizador.is_alive():
+                pregunta_activa = False
 
-        elif respuesta == 'skip':
-           pregunta_activa = False
+            elif respuesta == 'skip':
+                pregunta_activa = False
 
-        elif match:
-            print('¡Correcto!')
-            pregunta_activa = False
+            elif match:
+                print('¡Correcto!')
+                pregunta_activa = False
 
-        else:
-            print('Inténtalo nuevamente :(')
-            intentos += 1
+            else:
+                print('Inténtalo nuevamente :(')
+                intentos += 1
+        
+        except:
+            print("Eso no es una expresión regular :(")
+         
+    return 0 if (respuesta == 'skip') or (not thread_temporizador.is_alive()) else 1 
