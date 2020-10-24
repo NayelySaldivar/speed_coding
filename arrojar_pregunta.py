@@ -2,8 +2,8 @@ import random
 import re
 from preguntas import *
 from launcher import *
+from mensaje_con_delay import *
 
-num_pregunta_usuario = 0
 
 def arrojar_pregunta(thread_temporizador, p_restantes):
     # Seleccionar la pregunta que se utilizará
@@ -19,14 +19,16 @@ def arrojar_pregunta(thread_temporizador, p_restantes):
     while pregunta_activa:
         
         # Imprimir la pregunta seleccionada
-        print(f"\nPregunta:", todas_las_preguntas[num_pregunta-1].pregunta)
+        mensaje = f"\nPregunta: " + todas_las_preguntas[num_pregunta-1].pregunta
+        mensaje_con_delay(mensaje, 0, 0)
 
         # Imprimir ayuda si ya lleva varios intentos
         if intentos == 2:
-            print("Pista:",todas_las_preguntas[num_pregunta-1].ayuda) 
+            pista = "\nPista: " + todas_las_preguntas[num_pregunta-1].ayuda 
+            mensaje_con_delay(pista)
 
         #Pedir respuesta del usuario
-        respuesta = input('>>>')
+        respuesta = input('\n>>>')
 
         # Pasar respuesta a formato regex
         try:

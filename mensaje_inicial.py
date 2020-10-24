@@ -36,14 +36,14 @@ def mensaje_inicial():
     # Continúan las instrucciones
     mensaje3 = "\n\nTienes dos minutos para responder la mayor cantidad de "\
     "desafíos que puedas. Entre más preguntas contestes, ¡mayor será la "\
-    "envidia de tus colegas programadores!"
+    "envidia de los demás programadores!"
 
     for char in mensaje3:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.015)
 
-    time.sleep(1.5)
+    time.sleep(1)
 
     # Mensaje para input del usuario
     respuesta = """\n
