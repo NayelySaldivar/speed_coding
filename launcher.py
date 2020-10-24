@@ -3,6 +3,7 @@ from cuenta_regresiva import *
 from temporizador import *
 from arrojar_pregunta import *
 from mensaje_con_delay import *
+from dinosaurios import *
 
 puntos=0
 
@@ -17,7 +18,7 @@ if __name__ == "__main__":
             cuenta_regresiva()
                     
             # Iniciar temporizador.
-            thread_temporizador = threading.Thread(target = temporizador, args=(45, ))
+            thread_temporizador = threading.Thread(target = temporizador, args=(60, ))
             thread_temporizador.start()
 
             # Iniciar contadores de preguntas restantes y puntaje
@@ -29,12 +30,22 @@ if __name__ == "__main__":
 
             # Mostrar puntaje 
             
-            banner_score = "\n------------------------------"
-            mensaje_con_delay(banner_score, 0.01, 0)
+            banner_score = "\n------------------------------\n\n"
+            mensaje_con_delay(banner_score, 0.01)
 
-            el_score = u'\u001b[38;5;87m' + u'\u001b[1m' + f'\n\nSCORE: {puntos}' + u'\u001b[0m'
-            print('    ')
-            mensaje_con_delay(el_score, 0.13, 0.5)
+            el_score = u'\u001b[38;5;87m' + u'\u001b[1m' + f'SCORE: {puntos}' + u'\u001b[0m'
+            
+            mensaje_con_delay(el_score, 0.13, 0.3)
+
+            obtuviste = u'\u001b[38;5;87m' + '\n\nObtuviste un...\n\n' + u'\u001b[0m'
+            mensaje_con_delay(obtuviste, 0.05, 1)
+            
+            if puntos < 2:
+                dino_low()
+
+            elif puntos >= 3:
+                dino_mid()
+
 
             # Preguntar si quiere volver a jugar
             respuesta_activa = True
