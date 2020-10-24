@@ -3,6 +3,8 @@ from cuenta_regresiva import *
 from temporizador import *
 from arrojar_pregunta import *
 
+puntos=0
+
 if __name__ == "__main__":
     if mensaje_inicial() == True: #Si el usuario quiere jugar.  
         
@@ -14,7 +16,7 @@ if __name__ == "__main__":
             cuenta_regresiva()
                     
             # Iniciar temporizador.
-            thread_temporizador = threading.Thread(target = temporizador, args=(5, ))
+            thread_temporizador = threading.Thread(target = temporizador, args=(20, ))
             thread_temporizador.start()
 
             # Iniciar contadores de preguntas restantes y puntaje
@@ -22,10 +24,10 @@ if __name__ == "__main__":
 
             # Mostrar preguntas mientras siga activo el temporizador.
             while thread_temporizador.is_alive():
-                arrojar_pregunta(thread_temporizador, preguntas_restantes)
+                puntos+=arrojar_pregunta(thread_temporizador, preguntas_restantes)
 
             # Mostrar puntaje 
-            print(f'TU SCORE: ')
+            print(f'TU SCORE:{puntos}')
 
             # Preguntar si quiere volver a jugar
             respuesta_activa = True
@@ -33,10 +35,11 @@ if __name__ == "__main__":
             while respuesta_activa:
                 respuesta = input("\n¿Quieres jugar de nuevo?\n>>>")
 
-                if respuesta == ('si' or 'sí' or 'Si' or 'Sí'):
+                if respuesta == ('si' or 'sí' or 'Si' or 'Sí' or 'SI' or 'sI'):
                     respuesta_activa = False
+                    puntos=0
 
-                elif respuesta == ('no' or 'No'):
+                elif respuesta == ('no' or 'No' or 'NO' or 'nO'):
                     juego_activo = False
                     respuesta_activa = False
 
